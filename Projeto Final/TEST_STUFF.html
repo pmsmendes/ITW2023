@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TEST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../lib/font-awesome/dist/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="myCSS.css" />
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/knockout/dist/knockout-latest.min.js"></script>
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Sr#</td>
+                <td>Employee Name</td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Employees">
+            <tr>
+                <td data-bind="text : $index()"></td>
+                <td data-bind="text:Name"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function viewModelEmployee() {
+            this.Employees = ko.observableArray([
+                { Name: "Shiv", Code: "001" },
+                { Name: "DJ", Code: "002" },
+                { Name: "Rajneesh Rai", Code: "003" }
+            ]);
+        }
+        var vmEmp = new viewModelEmployee();
+        $(function () {
+            ko.applyBindings(vmEmp);
+        });
+    </script>
+
+</body>
+</html>
